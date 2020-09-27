@@ -151,6 +151,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuManutencao.add(jMenuItemAtualizarBD);
 
         jMenuItemBackupBD.setText("Backup BD");
+        jMenuItemBackupBD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBackupBDActionPerformed(evt);
+            }
+        });
         jMenuManutencao.add(jMenuItemBackupBD);
 
         jMenuBarPrincipal.add(jMenuManutencao);
@@ -215,6 +220,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
         tabela.OnCreateOnUpdateUsuario();
         
     }//GEN-LAST:event_jMenuItemAtualizarBDActionPerformed
+
+    private void jMenuItemBackupBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBackupBDActionPerformed
+        FrmBackup form = null;
+        form = new FrmBackup();
+        form.setVisible(true);
+        jDesktopPanePrincipal.add(form);
+    }//GEN-LAST:event_jMenuItemBackupBDActionPerformed
 
     /**
      * @param args the command line arguments
