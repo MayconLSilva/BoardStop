@@ -22,6 +22,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
     }
 
+    FrmPrincipal(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,6 +49,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuMovimento = new javax.swing.JMenu();
         jMenuManutencao = new javax.swing.JMenu();
         jMenuItemAtualizarBD = new javax.swing.JMenuItem();
+        jMenuItemBackupBD = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -145,6 +150,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMenuManutencao.add(jMenuItemAtualizarBD);
 
+        jMenuItemBackupBD.setText("Backup BD");
+        jMenuManutencao.add(jMenuItemBackupBD);
+
         jMenuBarPrincipal.add(jMenuManutencao);
 
         setJMenuBar(jMenuBarPrincipal);
@@ -204,6 +212,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         tabela.OnCreateOnUpdateMarca();
         tabela.OnCreateOnUpdateProduto();
         tabela.OnCreateOnUpdateSubCategoria();
+        tabela.OnCreateOnUpdateUsuario();
         
     }//GEN-LAST:event_jMenuItemAtualizarBDActionPerformed
 
@@ -249,6 +258,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBarPrincipal;
     private javax.swing.JMenu jMenuCadastros;
     private javax.swing.JMenuItem jMenuItemAtualizarBD;
+    private javax.swing.JMenuItem jMenuItemBackupBD;
     private javax.swing.JMenuItem jMenuItemCadastroParticipante;
     private javax.swing.JMenuItem jMenuItemCategoria;
     private javax.swing.JMenuItem jMenuItemMarca;

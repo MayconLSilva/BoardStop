@@ -38,6 +38,28 @@ public class CriarTabelas {
         } 
      }
     
+    public void OnCreateOnUpdateUsuario(){
+         conecta.conexao();         
+                 
+         String sqlUsuario = "CREATE TABLE IF NOT EXISTS  `BoardStop`.`tblusuario` (\n" +
+                        "  `idUsuario` int(10) unsigned NOT NULL AUTO_INCREMENT,\n" +
+                        "  `nomeUsuario` varchar(20) DEFAULT NULL,\n" +
+                        "  `senhaUsuario` varchar(20) DEFAULT NULL,\n" +
+                        "  `loginUsuario` varchar(20) DEFAULT NULL,\n" +
+                        "  PRIMARY KEY (`idUsuario`)\n" +
+                        ") ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;";
+        try{            
+            PreparedStatement pst = conecta.conn.prepareStatement(sqlUsuario);
+            
+            pst.execute();
+            pst.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Banco de dados atualizado com sucesso!!");
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar banco de dados!\nERRO:" + ex);
+        } 
+     }
+    
     public void OnCreateOnUpdateSubCategoria(){
          conecta.conexao();         
                  
