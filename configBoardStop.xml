@@ -1,0 +1,9 @@
+<?xml version=’1.0' encoding=’ISO-8859-1' ?>
+<config>
+  <bancomysql>
+    <servidormysql>server2012</servidormysql>
+    <bancodadosmysql>BoardStop</bancodadosmysql>
+    <usuariomysql>sistema</usuariomysql>
+    <senhamysql>M12345</senhamysql>		
+  </bancomysql>  
+</config>
