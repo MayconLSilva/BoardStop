@@ -5,6 +5,7 @@
  */
 package view;
 
+import static java.lang.Thread.sleep;
 import util.ConectaBanco;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -112,7 +113,37 @@ public class FrmLogin extends javax.swing.JFrame {
 
         LoginVerifica();
         
-        if(jPasswordFieldSenha.getText().equals(senha)){                
+        
+    }//GEN-LAST:event_jButtonLoginActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonLoginKeyPressed
+        // TODO add your handling code here:
+        jButtonLoginActionPerformed(null);
+    }//GEN-LAST:event_jButtonLoginKeyPressed
+
+    private void jPasswordFieldSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaKeyPressed
+        if(evt.getKeyCode() == evt.VK_ENTER){
+           LoginVerifica();
+       }
+    
+    }//GEN-LAST:event_jPasswordFieldSenhaKeyPressed
+
+    private void jTextFieldNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNomeKeyReleased
+       
+    }//GEN-LAST:event_jTextFieldNomeKeyReleased
+
+    public void LoginVerifica(){
+        try {
+            conex.executaSQL("select * from tblusuario where loginUsuario = '"+jTextFieldNome.getText()+"'");
+            conex.rs.first();            
+            senha = conex.rs.getString("senhaUsuario");
+           
+            if(jPasswordFieldSenha.getText().equals(senha)){                
                 new Thread(){
                     public void run(){
                         for (int i=0; i < 101;i++){
@@ -141,33 +172,6 @@ public class FrmLogin extends javax.swing.JFrame {
             }else{
             //JOptionPane.showMessageDialog(null, "Senha e/ou Usuário não correspondem...");
         }
-    }//GEN-LAST:event_jButtonLoginActionPerformed
-
-    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jButtonCancelarActionPerformed
-
-    private void jButtonLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonLoginKeyPressed
-        // TODO add your handling code here:
-        jButtonLoginActionPerformed(null);
-    }//GEN-LAST:event_jButtonLoginKeyPressed
-
-    private void jPasswordFieldSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaKeyPressed
-        // TODO add your handling code here:
-    
-    }//GEN-LAST:event_jPasswordFieldSenhaKeyPressed
-
-    private void jTextFieldNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNomeKeyReleased
-       
-    }//GEN-LAST:event_jTextFieldNomeKeyReleased
-
-    public void LoginVerifica(){
-        try {
-            conex.executaSQL("select * from tblusuario where loginUsuario = '"+jTextFieldNome.getText()+"'");
-            conex.rs.first();            
-            senha = conex.rs.getString("senhaUsuario");
-           
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Senha e/ou Usuário não correspondem");

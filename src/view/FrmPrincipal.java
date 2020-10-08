@@ -177,8 +177,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemCadastroParticipanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroParticipanteActionPerformed
-        FrmCliente form = null;
-        form = new FrmCliente();
+        FrmParticipante form = null;
+        form = new FrmParticipante();
         form.setVisible(true);
         jDesktopPanePrincipal.add(form);
     }//GEN-LAST:event_jMenuItemCadastroParticipanteActionPerformed
@@ -218,6 +218,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         tabela.OnCreateOnUpdateProduto();
         tabela.OnCreateOnUpdateSubCategoria();
         tabela.OnCreateOnUpdateUsuario();
+        tabela.OnCreateOnUpdateParticipante();
         
     }//GEN-LAST:event_jMenuItemAtualizarBDActionPerformed
 

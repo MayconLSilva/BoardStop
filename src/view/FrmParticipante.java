@@ -26,7 +26,7 @@ import javax.swing.text.PlainDocument;
  *
  * @author Maycon Silva
  */
-public class FrmCliente extends javax.swing.JInternalFrame {
+public class FrmParticipante extends javax.swing.JInternalFrame {
     
     private String dataAtual;
     
@@ -34,7 +34,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form FrmCliente
      */
-    public FrmCliente() {
+    public FrmParticipante() {
         initComponents();
         
         this.setLocation(340,35);
@@ -279,6 +279,11 @@ public class FrmCliente extends javax.swing.JInternalFrame {
 
         jMenuSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/content-save.png"))); // NOI18N
         jMenuSalvar.setText("SALVAR");
+        jMenuSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuSalvarMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenuSalvar);
 
         jMenuEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/account-edit.png"))); // NOI18N
@@ -332,10 +337,8 @@ public class FrmCliente extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldEndereco)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel7))
                                 .addGap(0, 0, Short.MAX_VALUE)))
@@ -467,6 +470,10 @@ public class FrmCliente extends javax.swing.JInternalFrame {
        jTextFieldCPFCNPJ.setText(format.getCpfCnpjFormatado(jTextFieldCPFCNPJ.getText()));
         
     }//GEN-LAST:event_jTextFieldCPFCNPJFocusLost
+
+    private void jMenuSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalvarMouseClicked
+        
+    }//GEN-LAST:event_jMenuSalvarMouseClicked
 
     public void disableMenus (){
         jMenuSalvar.setEnabled(false);

@@ -134,4 +134,46 @@ public class CriarTabelas {
         } 
      }
     
+    public void OnCreateOnUpdateParticipante(){
+        conecta.conexao();
+        
+        String sqlParticipante = "CREATE TABLE IF NOT EXISTS `BoardStop`.`tblparticipante` (\n" +
+                "  `idParticipante` int(10) unsigned NOT NULL AUTO_INCREMENT,\n" +
+                "  `nomeParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `cpfCnpjParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `enderecoParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `numeroParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `bairroParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `cidadeParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `ufParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `ieRgParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `telefoneParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `celular1Participante` varchar(20) DEFAULT NULL,\n" +
+                "  `celular2Participante` varchar(20) DEFAULT NULL,\n" +
+                "  `emailParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `dataCadParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `dataAltParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `userCadParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `userAltParticipante` varchar(20) DEFAULT NULL,\n" +
+                "  `ativoParticipante` tinyint(1) DEFAULT NULL,\n" +
+                "  `clienteParticipante` tinyint(1) DEFAULT NULL,\n" +
+                "  `vendedorParticipante` tinyint(1) DEFAULT NULL,\n" +
+                "  `fornecedorParticipante` tinyint(1) DEFAULT NULL,\n" +
+                "  `transportadoraParticipante` tinyint(1) DEFAULT NULL,\n" +                
+                "  PRIMARY KEY (`idParticipante`)\n" +
+                ") ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;";
+        
+        try{            
+            PreparedStatement pst = conecta.conn.prepareStatement(sqlParticipante);
+            
+            pst.execute();
+            pst.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Banco de dados atualizado com sucesso!!");
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar banco de dados!\nERRO:" + ex);
+        } 
+                
+    }
+    
 }
